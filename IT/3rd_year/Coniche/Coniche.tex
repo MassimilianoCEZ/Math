@@ -1,0 +1,175 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[german,italian]{babel}
+\usepackage{fancyhdr}
+
+
+\textwidth16cm \textheight24cm \topmargin0mm \headheight0mm
+\headsep5mm \oddsidemargin0mm \evensidemargin0mm
+\parindent0mm
+
+
+\usepackage{amsmath}
+\usepackage{parskip}
+\usepackage{dsfont}
+\usepackage{fullpage}
+\usepackage{amssymb}
+\usepackage{tikz,pgfplots}
+\usepackage{cancel}
+\usepackage{lmodern}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{theorem}
+\usepackage{psfrag}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\usepackage{background}
+\usepackage{keystroke}
+\usepackage{etoolbox}
+
+
+\makeatletter
+\patchcmd{\tableofcontents}{\@starttoc{toc}}{\hypertarget{totoc}{}\@starttoc{toc}}{}{}
+\makeatother
+
+\SetBgScale{1}
+\SetBgAngle{0}
+\SetBgColor{black}
+\SetBgPosition{current page.south}
+\SetBgVshift{20pt}
+\SetBgContents{\tikz[remember picture,overlay]
+    \node[inner sep=0pt] {\hyperlink{totoc}{\Return}};}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    pdftitle={titolo},
+    pdfpagemode=FullScreen,
+}
+
+
+
+
+\begin{document}
+
+
+
+
+\title{Matematica}
+
+\author{Massimiliano Ferrulli}
+\date{03.05.2022}
+
+
+
+\maketitle
+
+\section*{Coniche}
+Studio di coniche, ellissi, paraboliche e iperboli
+
+\pagebreak
+
+
+
+
+\tableofcontents
+
+
+
+
+
+\pagebreak
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Le Coniche }
+\subsection{Sezioni coniche}
+Nello spazio consideriamo due rette \textit{g} e \textit{a} incidenti nel punto V, con \( \omega \) che è l'angolo generato dall'intersezione delle due rette. 
+La rotazione della retta \textit{g} attorno ad \textit{a} genera una superficie illimitata detta cono di rotazione a due falde.
+
+
+
+
+
+
+\subsection{Definizione}
+Una curva ottenuta come intersezione di un cono di rotazione con un piano \( \alpha \), che non passi per il vertice, è detta conica non degenere
+si distinguono 3 casi a dipendenza dell'angolo di incidenta S del piano \( \alpha \) rispetto all'asse \textit{a}. 
+
+Queste curve ottenute come sezioni di un cono, possono essere caratterizzate come luoghi geometrici, cioè come insieme di punti di un piano che soddisfano una condizione geometrica.
+ 
+
+
+
+
+\subsubsection{Caso 1}
+se il piano interseca una sola falda e taglia tutte le generatrici, cioè se \( \delta > \omega \) si ottiene una curva chiusa detta ellisse. 
+In particolare se \( \alpha \perp a \) oppure \( \vec{\eta}_\alpha \backslash \backslash \, \vec{v}_a \)   \( (\delta = \frac{\pi}{2}) \) si ottiene una circonferenza
+\paragraph{Luogo geometrico Ellisse}
+un'ellisse è l'insieme di punti per i quali la somma delle distanze da due punti \(F_1 e F_2\) (detti fuochi) è costante.
+
+
+
+
+
+\subsubsection{Caso 2}
+se il piano \( \alpha \) interseca una sola falda ed è parallelo ad una generatrice \( ( \delta = \omega) \) si ottiene una curva aperta detta parabola
+\paragraph{Luogo geometrico Parabola}
+è l'insieme dei punti del piano equidistanti da un punto fisso F detto fuoco e da una retta fissa D detta direttrice
+
+
+
+
+
+
+\subsubsection{Caso 3}
+
+\(  \delta < \omega \)
+
+
+
+\paragraph{Luogo geometrico Iperbole}
+È l'insieme dei punti del piano \( \alpha \) per i quali il valore assoluto della differenza delle distanze dai due punti fissi \( F_1 e F_2\) (fuochi) è costante.
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
