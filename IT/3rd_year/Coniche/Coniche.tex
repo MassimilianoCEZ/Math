@@ -126,7 +126,7 @@ Queste curve ottenute come sezioni di un cono, possono essere caratterizzate com
 
 
 
-\subsubsection{Caso 1}
+\subsection{Caso 1}
 se il piano interseca una sola falda e taglia tutte le generatrici, cioè se \( \delta > \omega \) si ottiene una curva chiusa detta ellisse. 
 In particolare se \( \alpha \perp a \) oppure \( \vec{\eta}_\alpha \backslash \backslash \, \vec{v}_a \)   \( (\delta = \frac{\pi}{2}) \) si ottiene una circonferenza
 \begin{center}
@@ -141,7 +141,7 @@ un'ellisse è l'insieme di punti per i quali la somma delle distanze da due punt
 
 
 
-\subsubsection{Caso 2}
+\subsection{Caso 2}
 se il piano \( \alpha \) interseca una sola falda ed è parallelo ad una generatrice \( ( \delta = \omega) \) si ottiene una curva aperta detta parabola
 \begin{center}
 \begin{minipage}{8cm}
@@ -156,7 +156,7 @@ se il piano \( \alpha \) interseca una sola falda ed è parallelo ad una generat
 
 
 
-\subsubsection{Caso 3}
+\subsection{Caso 3}
 \begin{center}
 \begin{minipage}{8cm}
     \includegraphics[scale=0.3]{iperbole.png}
@@ -166,11 +166,11 @@ se il piano \( \alpha \) interseca una sola falda ed è parallelo ad una generat
 
 
 
-\paragraph{Luogo geometrico Iperbole}
+\subsubsection{Luogo geometrico Iperbole}
 È l'insieme dei punti del piano \( \alpha \) per i quali il valore assoluto della differenza delle distanze dai due punti fissi \( F_1 e F_2\) (fuochi) è costante.
   
 
-\paragraph{Ragionamento sulle caratterizzazioni delle coniche}
+\subsubsection{Ragionamento sulle caratterizzazioni delle coniche}
 Queste caratterizzazioni delle coniche come luoghi geometrici del piano sono conseguenze delle loro definizioni come sezioni del cono.
 Esaminiamo il caso dell'ellisse, dato dall'intersezioni del piano \( \alpha \) con il cono
 
@@ -203,14 +203,82 @@ Un'ellisse ha due assi di simmetria: l'asse maggiore ( o focale) e l'asse minore
 \\
 Consideriamo un ellisse \( \xi  \) con fuochi \(F_1 e F_2\) e indichiamo con 2c la loro distanza. scegliamo gli assi cartesiani in modo che coincidano con gli assi di simmetria. 
 
-%aggiungere grafico ellisse
+\begin{center}
+    \begin{minipage}{8cm}
+        \includegraphics[scale=0.3]{ellisseg.png}
+    \end{minipage}
+    \end{center}
 
-\( P(x,y) \in \xi \Longleftrightarrow \left\lvert PF_1 \right\rvert + \left\lvert PF_2 \right\rvert = 2a \, \, a > c \) 
+\begin{align*}
+ P(x,y) \in \xi \Longleftrightarrow \left\lvert PF_1 \right\rvert + \left\lvert PF_2 \right\rvert = 2a \, \, a > c 
+ \\
+ \left\lvert F_2c \right\rvert + \left\lvert F_2A \right\rvert = 2a
+ \\
+ \left\lvert CA \right\rvert = 2a
+ \\
+ \text{dove A e B sono i due vertici lungo il semiasse maggiore}
+\end{align*}
 
+\begin{center}
+    \[
+    P(x,y) = \xi  (F_1 , F_2 , a)  \Longleftrightarrow \left\lvert PF_1 \right\rvert + \left\lvert PF_2 \right\rvert = 2a  
+    \]
+\end{center}
 
+\begin{align*}
+    \sqrt{(x-c)^2 + y^2          } + \sqrt{(x+c)^2 + y^2} = 2a 
+    \\
+    \sqrt{(x-c)^2 + y^2          } = 2a - \sqrt{(x+c)^2 + y^2} 
+     \\
+     (x-c)^2 + y^2 = 4a^2 + (x+c)^2 + y^2 -4a\sqrt{(x+c)^2 + y^2}
+     \\
+     (x-c)^2 - (x+c)^2 = 4a^2 -4a\sqrt{(x+c)^2 + y^2}
+     \\
+    -4xc = 4a^2 -4a\sqrt{(x+c)^2 + y^2}
+    \\
+    xc + a^2 = a\sqrt{(x+c)^2 + y^2}
+    \\
+    a^2 (x-c)^2 + a^2 y^2 = a^4 -2a^2 xc + x^2 c^2
+    \\
+    a^2 x^2 - x^2 c^2 + a^2 y^2 = a^4 - a^2 c^2
+    \\
+    x^2 ( a^2 - c^2 ) + a^2 y^2 = a^2(a^2 - c^2)
+    \\
+    b^2 = a^2 - c^2 
+    \\
+    x^2 b^2 + a^2 y^2 = a^2 b^2 
+    \\
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+\end{align*}
+L'equazione dell'ellisse sarà: \(     \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1  \) 
+\paragraph{Osservazione 1}
+ se si impostano i calcoli ponendo i fuochi sull'asse delle y \(  (F_1(0,c) \, e \, F_2(0,-c) )    \) si ottiene l'equazione: \(       \frac{x^2}{b^2} + \frac{y^2}{a^2} = 1 \)     
+\\
+sono verticali se il numero al denominatore delle y \(  \frac{y^2}{b^2} \) è maggiore rispetto a quello delle x
+\paragraph{Osservazione 2}
+se l'ellisse è centrato in \( M(x_0,y_0)  \) la sua equazione sarà \( \frac{(x-x_0)^2}{a^2} + \frac{(y-y0)^2}{b^2} = 1 \)
+\paragraph{Osservazione 3}
+se \( a = b = r  \) , si ottiene un'equazione centrata in (0,0) e di raggio r. la sua equazione sarà:
+\begin{align*}
+    \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1
+    \\
+    \frac{x^2}{r^2} + \frac{y^2}{r^2} = 1
+    \\
+    x^2 + y^2 = r^2 
+\end{align*}   
+in questo caso c = 0 e i due fuochi coincidono con l'origine
+\subsection{Eccentricità dell'ellisse}
+a fisso e c variabile
+\\
+\( 0 \leq c \leq a \) fuochi si spostano sul semiasse maggiore  
+\\
+circconferneza se c = 0 \hspace{5mm} ellisse si appiattisce sempre di più quando c aumenta fino a c = ae l'ellisse degenera nel segmento \(F_1 F_2\).
+\\
+Il rapporto \( \xi = \frac{c}{a}     \) è detto eccentricità e varia da [0;1[ \, , \, esso ci indica quanto l'ellisse discosta dalla circolarità.
 
-
-
+\subsection{Costruzione con il metodo del giardiniere}
+\href{https://www.geogebra.org/m/BNdgyFsW}{Metodo Giardiniere interattivo}
+ 
 
 
 
