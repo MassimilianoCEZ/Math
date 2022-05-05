@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1651736129 "c:/Users/busin/Desktop/Math/IT/3rd_year/Coniche/Coniche.tex" "Coniche.pdf" "Coniche" 1651736142
+["pdflatex"] 1651736129 "c:/Users/busin/Desktop/Math/IT/3rd_year/Coniche/Coniche.tex" "Coniche.pdf" "Coniche" 1651736405
   "C:/Users/busin/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1632298410 9742851 6e508fd6781b750628aa13ff53afa576 ""
   "C:/Users/busin/AppData/Local/MiKTeX/pdftex/config/pdftex.map" 1651732633 81068 299f700eb05b1217173e62b88b513bd0 ""
   "C:/Users/busin/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc" 1254938640 2375 baa924870cfb487815765f9094cf3728 ""
@@ -255,10 +255,10 @@
   "C:/Users/busin/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1623005690 4902 efb3d66683a2da2a232f71e3a571a899 ""
   "Coniche.aux" 1651736141 3722 64d2cbe4cf21086709c88e2a23ba1dcc "pdflatex"
   "Coniche.out" 1651736141 1843 af76e780b2a7674b491513cb5f2c90cb "pdflatex"
-  "Coniche.tex" 1651736114 8793 1084fe7faaffea0ceda6f609058192f3 ""
+  "Coniche.tex" 1651736402 8793 1084fe7faaffea0ceda6f609058192f3 ""
   "Coniche.toc" 1651736141 1323 5700e10869e0bceb33b2935c196a9a75 "pdflatex"
   "Untitled_4.png" 1651732026 228291 49b104c5563fef9d736311468a05cc84 ""
-  "c:/Users/busin/Desktop/Math/IT/3rd_year/Coniche/Coniche.tex" 1651736114 8793 1084fe7faaffea0ceda6f609058192f3 ""
+  "c:/Users/busin/Desktop/Math/IT/3rd_year/Coniche/Coniche.tex" 1651736402 8793 1084fe7faaffea0ceda6f609058192f3 ""
   "ellisse.png" 1651732026 74103 a254b82dcfebfba53639155d2efc1657 ""
   "ellisseg.png" 1651732975 163874 e29100ef63a00d3c6bceb842a243dd46 ""
   "ez.png" 1651732026 464283 31e9e87098ca5b22730fa9e68139d9d1 ""
@@ -266,8 +266,8 @@
   "parabola.png" 1651732026 91773 10e599349a8708a3be795f377dc3a684 ""
   "rag_ellisse.png" 1651732026 243131 22e55cf6f29798331b7eb6db3c5c9079 ""
   (generated)
-  "Coniche.out"
   "Coniche.pdf"
-  "Coniche.toc"
   "Coniche.aux"
+  "Coniche.toc"
   "Coniche.log"
+  "Coniche.out"
