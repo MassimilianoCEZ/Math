@@ -158,12 +158,27 @@
 }
 
 \newcommand{\irow}[1]{% inline row vector
-  \begin{smallmatrix}#1\end{smallmatrix}%
+  \left(\begin{smallmatrix}#1\end{smallmatrix}\right)%
 }
 
+
 \renewcommand{\iff}{
-  \Longleftrightarrow^{\text{iff}}
+  \xleftrightarrow{\text{iff}}
 }
+
+\newcommand{\bk}[1]{
+  \langle {#1} \rangle
+}
+
+\renewcommand{\mod}[1]{
+  \left\lVert {#1}\right\rVert_2
+}
+
+\newcommand{\abs}[1]{
+  \left\lvert {#1} \right\rvert
+}
+
+
 
 
 
@@ -199,11 +214,64 @@ $$\mathbf{x+y} = \icol{x_1\\\vdots\\ \\ x_n} + \icol{y_1 \\ \vdots \\ \\ y_n } =
 $$ \lambda \mathbf{x} = \lambda \icol{x_1 \\ \vdots \\ \\ x_n} = \icol{\lambda x_1 \\ \vdots \\ \\ \lambda x_n} $$
 $$ \lambda \mathbf{x+y} = \lambda \mathbf{x} + \lambda \mathbf{y} $$
 Scalar product, $ \langle \cdot , \cdot \rangle : \mathbb{R}^n \times \mathbb{R}^n \to \mathbb{R}$ , in the vector space $\mathbb{R}^n$ is defined as:
-$$\langle \mathbf{x,y} \rangle = \sum_{k = 1}^{n} x_k y_k $$
+$$\langle \mathbf{x,y} \rangle = \sum_{k = 1}^{n} x_k y_k = \mathbf{x^T y} = \irow{x_1 & \cdots & x_n } \icol{y_1 \\ \vdots \\ \\ y_n}  $$
 The scalar product satisfies the following properties: \\
-1 Positive definiteness: $\langle \mathbf{x,x} \rangle \geq 0  \forall x $ with  $ \langle \mathbf{x,x} \rangle = 0  \iff  x = 0 $
+1. Positive definiteness: $\langle \mathbf{x,x} \rangle \geq 0  \forall x $ with  $ \langle \mathbf{x,x} \rangle = 0  \iff  x = 0  $ \\
+2. Simmetry: $\bk{x,y} = \bk{y,x} $ \\
+3. Bilinearity: $\bk{\alpha x + \beta y, z} = \alpha\bk{x,z} + \beta\bk{y,z} \, \, \, \forall x,y,z \in \mathbb{R}^n  \, \, \text{and} \, \, \forall \alpha , \beta \in \mathbb{R} $
+\subsection{Euclidean Norm on $ \mathbb{R}^n $}
+The function $\mod{\cdot} : \mathbb{R}^n \to \mathbb{R} $ is defined by
+$$ \mod{x} = \sqrt{\bk{x,x}} = \left(\sum_{k = 1}^{n} x^2_k\right)^{\frac{1}{2}}$$
 
-
+The Euclidean norm on $\mathbb{R}^n$ has the following properties: \\
+1. Non-negativity: $\|\mathrm{x}\|_2 \geqslant 0$ for all $\mathrm{x} \in \mathbb{R}^n$, with eequality $ \iff$ $\mathbf{x}=\mathbf{0}$. \\
+2. Homogeneity: $\|\lambda \cdot \mathbf{x}\|_2=|\lambda| \cdot\|\mathbf{x}\|_2$ for all $\lambda \in \mathbb{R}$ and $\mathbf{x} \in \mathbb{R}^n$ \\
+3. Triangle inequality: $\|\mathbf{x}+\mathbf{y}\|_2 \leqslant\|\mathbf{x}\|_2+\|\mathbf{y}\|_2 \forall \mathbf{x}, \mathbf{y} \in \mathbb{R}^n$ (also called Cauchy Schwartz inequality)\\
+$$ \abs{\bk{x,y}} \leq \mod{x} \mod{y} \text{(Angle Formula)} $$
+if $\mathbf{x}$ and $\mathbf{y}$ are orthogonal then:
+$$ \mod{x+y}^2 = \mod{x}^2 + \mod{y}^2 \text{(Pythagoras)} $$
+\underline{Definition:} \\
+The Euclidean distance on $\mathbb{R}^n$ is the function $d(. \, , \, . ) : \mathbb{R}^n \times \mathbb{R}^n \to [0,\infty) $ given by:
+$$ d(\mathbf{x}, \mathbf{y}):=\mod{x-y}=\sqrt{\left(x_1-y_1\right)^2+\ldots+\left(x_n-y_n\right)^2} $$
+This function outputs the distance between two points in $\mathbb{R}^n$ and it satisfies the following 3 properties: \\
+1. Non-negativity: $d(\mathbf{x}, \mathbf{y}) \geqslant 0$ for all $\mathbf{x}, \mathbf{y} \in \mathbb{R}^n$, with equality $\iff $ $\mathrm{x}=\mathrm{y}$. \\
+2. Symmetry: $d(\mathbf{x}, \mathbf{y})=d(\mathbf{y}, \mathbf{x})$. \\
+3. Triangle inequality: $d(\mathbf{x}, \mathbf{y}) \leqslant d(\mathbf{x}, \mathbf{z})+d(\mathbf{z}, \mathbf{y})$. \\
+\subsection{Topology on $\mathbb{R}^n$}
+\underline{Definition:} Open Ball \\
+Let $\mathbf{a} \in \mathbb{R}^n$ and $r > 0$. The set 
+$$B(a,r) = \{ x \in \mathbb{R}^n : d(x,a) < r \} $$
+is called the open ball of radius r centered at  $ \mathbf{a} $.\\
+If $\mathbb{x}$ and $\mathbb{y}$ are two distinct points then: if $\mathbf{x,y} \in \mathbb{R}^n and \mathbf{x \neq y} $ then we can find a sufficiently small open ball centered in $\mathbf{x}$ and another centered in $\mathbf{y} $ such that the two balls don't touch.
+Open balls are open sets\footnote{An open set is a set with the property that if $\mathbf{x}$ is a point in the set then all points that are sufficiently near to it also belong to the set. } \\
+\underline{Definition:} Open set \\
+A subset $U \subseteq \mathbb{R}^n $ is open if $\forall \mathbf{x} \in U  \, \, \, \exists \varepsilon > 0 : \, \text{the open ball} \, \, B(x,\varepsilon) \, \, \text{is contained in} \, U. $  \\
+\underline{Example of an open set:}\\
+1. if $a < b$ are real numbers then the interval $$ (a,b) = \{x \in \mathbb{R} : a < x < b\} $$
+is an open set. \\
+Proof: take $r = min\{x-a, b-x\}$ (both a and b are strictly positive), the minimum is positive and the ball $B(x,r) = \{y\in\mathbb{R} : \abs{x-y} < r\}$ is a subset of $(a,b)$.
+As $\mathbf{x}$ is arbitrary, that works $\forall \mathbf{x} \in (a,b)$ and so it satisfies the definition of an open set. \\
+2. The infinite interval $(a,\infty)$ and $(-\infty,b)$ are also open but the intervals 
+$$ (a, b]=\{x \in \mathbb{R}: a<x \leqslant b\} \quad \text { and } \quad[a, b]=\{x \in \mathbb{R}: a \leqslant x \leqslant b\} $$
+are not open sets. \\
+3. the rectangle $(a, b) \times(c, d)=\left\{(x, y) \in \mathbb{R}^2: a<x<b, c<y<d\right\}$ is an open set. \\
+\underline{Definition:} Closed Set \\
+A subset $C \subseteq \mathbb{R}^n$ is closed if its complement $\mathbb{R}^n \ C $ is open. \\
+\underline{Convention:} The empty set and the space $\mathbb{R}^n $ are the only two spaces both open and closed at the same time. \\
+\underline{Definition:} Closed Ball \\
+Let $\mathbf{a } \in \mathbb{R}^n $ and $r > 0$. The set 
+$$\overline{B(\mathbf{a},r)} = \{ \mathbf{x} \in \mathbb{R}^n : d(\mathbf{x,a}) \leq r\} $$
+is called the closed ball of radius r centered at $\mathbf{a} $ and it is a closed set.
+\underline{Example of a closed set:} \\
+1. The closed interval $[a,b] = \{x \in \mathbb{R} \, : \, a \leq x \leq b\}$ is a closed set and its complementary $\mathbb{R} \ [a,b] = (-\infty,a) \cup (b,\infty) $ is an open set. \\
+2. Infinite intervals with closed boundary $[a,\infty)$ and $(-\infty,b] $ are closed sets. \\
+3. Halfopen intervals such as $[a,b)$ or $(a,b]$ \underline{are neither closed nor open sets.} \\
+4. Any set consisting of only finitely many points is a closed set. \\
+\underline{Propositions:} \\
+$\cdot$ if $U \subseteq \mathbb{R}^n$ is open and $C \subseteq \mathbb{R}^n$ is closed then $U \ C$ is open.  (Open \ Closed = Open)   \\
+$\cdot$ if $U \subseteq \mathbb{R}^n$ is closed and $C \subseteq \mathbb{R}^n$ is open then $U \ C$ is closed.  (Closed \ Open = Closed )  \\
+$\cdot$ if $U_1 , \cdots \, U_k \subseteq \mathbb{R}^n $ are open then $U_1 \cup \cdots \cup U_k$ and $U_1 \cap \cdots \cap U_k$ are open. \\
+$\cdot$ if $C_1 , \cdots \, C_k \subseteq \mathbb{R}^n $ are open then $C_1 \cup \cdots \cup C_k$ and $C_1 \cap \cdots \cap C_k$ are closed\footnote{intersezione e unione di sottoinsiemi chiusi (rispettivamente aperti) danno un sottoinsieme ancora chiuso (rispettivamente aperto).}. \\ 
 
 
 
