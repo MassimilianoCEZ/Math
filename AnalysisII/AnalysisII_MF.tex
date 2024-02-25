@@ -36,7 +36,7 @@
 \usepackage{babel}
 \usepackage{siunitx}
 \usepackage{float}
-
+\usepackage{accents}
 
 
 
@@ -178,8 +178,13 @@
   \left\lvert {#1} \right\rvert
 }
 
+\newcommand{\rn}{
+  \mathbb{R}^n
+}
 
-
+\newcommand{\R}{
+  \mathbb{R}
+}
 
 
 \begin{document}
@@ -272,19 +277,118 @@ $\cdot$ if $U \subseteq \mathbb{R}^n$ is open and $C \subseteq \mathbb{R}^n$ is 
 $\cdot$ if $U \subseteq \mathbb{R}^n$ is closed and $C \subseteq \mathbb{R}^n$ is open then $U \ C$ is closed.  (Closed \ Open = Closed )  \\
 $\cdot$ if $U_1 , \cdots \, U_k \subseteq \mathbb{R}^n $ are open then $U_1 \cup \cdots \cup U_k$ and $U_1 \cap \cdots \cap U_k$ are open. \\
 $\cdot$ if $C_1 , \cdots \, C_k \subseteq \mathbb{R}^n $ are open then $C_1 \cup \cdots \cup C_k$ and $C_1 \cap \cdots \cap C_k$ are closed\footnote{intersezione e unione di sottoinsiemi chiusi (rispettivamente aperti) danno un sottoinsieme ancora chiuso (rispettivamente aperto).}. \\ 
+\underline{Definition:} Let S be a subset of $\mathbb{R}^n$ and $\mathbf{x}$ a point in $\mathbb{R}^n$ \\
+$\cdot$ We call $\mathbf{x}$ an interior point of S if $ \exists r > 0 : $ the ball $B(x,r)$ is contained in S. \\
+$\cdot$ We call $\mathbf{x}$ an exterior point of S if  $ \exists r > 0 : $ the ball $B(x,r)$ has empty intersection with S \\
+$\cdot$ We call $\mathbf{x}$ an boundary point of S if  $ \exists r > 0 : $ the ball $B(x,r)$ if it is neither an interior point neither an exterior point. $\mathbf{x}$ is a boundary point if $\forall r > 0$ the ball $B(x,r) $ has non empty intersection with S without being entirely contained in S. \\  \\
+
+ \begin{figure}[!h]
+   \centering
+   \subfloat[Schematic for the 3 types of points]{
+     \includegraphics[width=50mm]{images/Int_ext_bound_points.png}
+   }
+ \end{figure}
+
+\underline{Definition:} Interior \\
+The set of all interior points of a set S is called the interior of S and it is denoted by $\mathbf{\mathring{S}}$ and it's the largest open set contained inside of S  \\
+\underline{Definition:} Boundary \\
+The set of all boundary points of a set S is called the boundary of S and we use $\mathbf{\partial S} $ to denote it \\
+\underline{Definition:} Closure \\
+The closure of S is denoted by $\overline{S}$ and it's the set of points $\mathbf{x} \in \mathbb{R}^n$ with the property that $\forall r > 0 \, \, , \, \, B(x,r) \cap S \neq \emptyset  $ . The closure of S is the union of all its interior points and boundary points. $\mathring{S}$  is the smallest closed set that contains S. \\
+$$ \mathring{S} \subseteq \overline{S} \subseteq S $$ 
+$$ \mathring{S} = S \cap \partial S \hspace{5mm} \overline{S} = S \cup \partial S \hspace{5mm} \partial S = \overline{S} \cap \mathring{S} $$ 
+
+\begin{figure}[!h]
+  \centering
+  \subfloat[Schematic for the 3 types of points]{
+    \includegraphics[width=50mm]{images/types_sets.png}
+  }
+\end{figure}
+
+\underline{Corollary:} \\
+$\cdot$ A set S is open $\iff$ $ S = \mathring{S} $ \\
+$\cdot$ A set S is closed $\iff$ $S = \overline{S} $ \\
+
+\underline{Examples:} \\ 
+
+\subsection{Convergence of sequences in $\mathbb{R}^n$}
+\underline{Definition:} sequences in $\mathbb{R}^n$ \\
+A sequence of elements of $\mathbb{R}^n$ is a function $ k \mapsto \mathbb{x}_k $ that associates to every $k \in \mathbb{N} $ an element $\mathbf{x}_i \in \mathbb{R}^n$ \\
+\underline{Convention:} We denote $\left(\mathbb{x}_k\right)_{k \in \mathbb{N}} $ a sequence in $\mathbb{R}^n$ and we can consider each coordinate as an individual sequence.
+$$ \left(\mathbf{x}_k\right)_{k \in \mathbb{N}} = \icol{ \left( x_{1,k}\right)_{k \in \mathbb{N}} \\ \vdots \\ \\ \left(x_{n,k}\right)_{k \in \mathbb{N}} } $$
+\underline{Definition:} Convergent sequence \\
+A sequence $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ of points in $\mathbb{R}^n$ converges to a point $\mathbf{x} \in \mathbb{R}^n$ if $\forall \varepsilon > 0 \exists N > 1 : $ when $ k \geq N $, then $d(\mathbf{x}_k, \mathbf{x}) < \varepsilon $. \\
+\underline{Convention:} We call $\mathbf{x} $ the limit of $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ and write:
+$$ \lim_{k \to \infty} \mathbf{x}_k = \mathbf{x} $$
+$\cdot$ If the limit exists, then it's unique. \\
+$\cdot$ A sequence $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ converges to $\mathbf{x}$ $\iff$ the distance $d(\mathbf{x}_k,\mathbf{x})$ converges to 0.
+$$ \lim_{k \to \infty} \mathbf{x}_k = \mathbf{x} \longleftrightarrow \lim_{k \to \infty} d(\mathbf{x}_k,\mathbf{x}) = 0 $$
+$\cdot$ A sequence converges to $\mathbf{x}$ $\iff$ each coordinate of $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ \underline{converges to the respective coordinate} of $\mathbf{x}$ 
+
+$$
+\begin{aligned}
+&\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}=\left(\begin{array}{c}
+\left(x_{1, k}\right)_{k \in \mathbb{N}} \\
+\vdots \\
+\left(x_{n, k}\right)_{k \in \mathbb{N}}
+\end{array}\right) \quad \text { and } \quad \mathbf{x}=\left(\begin{array}{c}
+x_1 \\
+\vdots \\
+x_n
+\end{array}\right)\\
+&\lim _{k \rightarrow+\infty} \mathbf{x}_k=\mathbf{x} \Longleftrightarrow \lim _{k \rightarrow+\infty} x_{i, k}=x_i \hspace{3mm} \forall i=1, \ldots, n
+\end{aligned}
+$$
+
+\underline{Theorem:} Vector space arithmetic of limits of sequences\\
+Let $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ and $\left(\mathbf{y}_k\right)_{k \in \mathbb{N}}$ be sequences in $\mathbb{R}^n$ and let $\left(\lambda_k\right)_{k \in \mathbb{R}}$ be a sequence in $\mathbb{R}$.
+(i) If $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ and $\left(\mathbf{y}_k\right)_{k \in \mathbb{N}}$ both converge then so does $\left(\mathbf{x}_k+\mathbf{y}_k\right)_{k \in \mathbb{N}}$ and
+$$
+\lim _{k \rightarrow+\infty} \mathbf{x}_k+\mathbf{y}_k=\lim _{k \rightarrow+\infty} \mathbf{x}_k+\lim _{k \rightarrow+\infty} \mathbf{y}_k .
+$$
+(ii) If $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ and $\left(\lambda_k\right)_{k \in \mathbb{N}}$ both converge then so does $\left(\lambda_k \mathbf{x}_k\right)_{k \in \mathbb{N}}$ and
+$$
+\lim _{k \rightarrow+\infty} \lambda_k \mathbf{x}_k=\left(\lim _{k \rightarrow+\infty} \lambda_k\right) \cdot\left(\lim _{k \rightarrow+\infty} \mathbf{y}_k\right) .
+$$
+(iii) If $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ and $\left(\mathbf{y}_k\right)_{k \in \mathbb{N}}$ both converge then so does $\left(\left\langle\mathbf{x}_k, \mathbf{y}_k\right\rangle\right)_{k \in \mathbb{N}}$ and
+$$
+\lim _{k \rightarrow+\infty}\left\langle\mathbf{x}_k, \mathbf{y}_k\right\rangle=\left\langle\lim _{k \rightarrow+\infty} \mathbf{x}_k, \lim _{k \rightarrow+\infty} \mathbf{y}_k\right\rangle
+$$
+\underline{Definition:} Cauchy sequences\\
+A sequence $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ is a Cauchy sequence if $ \forall \varepsilon > 0 \exists N > 1 : \, \, k,l \geq N $ implies $d(\mathbf{x}_k, \mathbf{x}_l) < \varepsilon$ and so it means that evey Cauchy sequence is a convergent sequence and viceversa. \\
+\underline{Proposition:} Let $S \subseteq \mathbb{R}^n $ be a non empty set and suppose $\mathbf{x} \in \partial S $ (Boundary set), then $\exists$ a sequence of elements $ \in S \, , \, \mathbf{x}_1, \mathbf{x}_2 \cdots \in S \, , \, : $
+$$ \lim_{k \to \infty} \mathbf{x}_k = \mathbf{x} $$
+\underline{Proposition:}  \\
+Let $ C \subseteq \mathbb{R}^n $ be a closed set and let $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ be a sequence of elements in C. if $\left(\mathbf{x}_k\right)_{k \in \mathbb{N}}$ converges then the limit $ \lim_{k \to \infty } \mathbf{x}_k = \mathbf{x} $ must belong to C. \\
+\underline{Definition:} Bounded set \\
+A subset $ E \subseteq \mathbb{R}^n $ is bounded if it is contained in a ball of finite radius centered at the origin: 
+$$ E \subseteq B(0,r) \text{for some} R < \infty $$
+A closed set don't need to be bounded, $ [0,\infty) $ by convention is closed but not bounded. \\
+\underline{Definition:} Compact set: \\
+A subset $ C \subseteq \rn $ is compact if it is closed and bounded. \\
+\underline{Definition:} Subsequence \\
+A subsequence $ \left(\mathbf{x}_k\right)_{k \in \R} $ is any sequence of the form $ \left(\mathbf{x}_{k_i}\right)_{i \in \R} $ where $\left(k_i\right)_{i \in \R} $ is a strictly increasing sequence of positive integers. \\
+If a sequence converges then any subsequence of it converges to the same limit. \\
+\underline{Theorem:} Bolzano-Weierstrass theorem in $\rn$ \\
+Let $C \subseteq \rn $ be compact. Any sequence $ \left(\mathbf{x}_k\right)_{k \in \R} $ of elements in C posseses a convergent subsequence $ \left(\mathbf{x}_{k_i}\right)_{i \in \R}$ whose limit is  in C. \\
+\underline{Definition:} Bounded sequence in $\rn$ \\
+A sequence $ \left(\mathbf{x}_k\right)_{k \in \R} $  is bounded if $\exists C > 0 : \mod{\mathbf{x}_k} \leq C \, \, \, \forall k \in \mathbb{N} $ (C a constant). \\
+Every convergent sequence is bounded but non viceversa, for example $ x_k = \left(-1\right)^k $ is bounded but not convergent. \\ 
+\underline{Corollary} (Consequence of the previous definition and bolzano-Weierstrass theorem) \\
+Each bounded sequence $ \left(\mathbf{x}_k\right)_{k \in \R}  $ in $\rn$ has a convergent susbequence $ \left(\mathbf{x}_{k_i}\right)_{i \in \R} $ \\
+\subsection{Paths and Path-Connected Sets}
+\underline{Definition:} Path \\
+Let $ I \subseteq \rn $ be an interval. A \underline{path} (or \underline{curve}) in $\rn$ is a function $ f \, \, : \, \, I \to \rn $ with:
+$$ f(t) = \icol{f_1(t) \\ \vdots \\ \\ f_n(t)} $$
+where  $ f_i \, \, : \, \, I \to \R $ is continuos $ \forall i = 1 , \, \, \cdots  \, \, , n $. A path is a vector with every component as a continuos function from an interval $I$ to $\R$ \\
+\underline{Definition:} Path connected sets\\
+Let $E \subseteq \rn $. We say E is \underline{path-connected} if $\forall \mathbf{x,y} \in E \, \, \exists $ a path  $f : [0,1] \to E $ with $f(0) = \mathbf{x} $ and $f(1) = \mathbf{y} $. \\
+$f : [0,1] \to E $ means that $ Im(f) \subseteq E $.
 
 
 
 
 
-
-%immagini:
-% \begin{figure}[!ht]
-%   \centering
-%   \subfloat[Misurazioni prese in rampa a 50khz]{
-%     \includegraphics[width=150mm]{50khz.jpg}
-%   }
-% \end{figure}
 
 \pagebreak
 
